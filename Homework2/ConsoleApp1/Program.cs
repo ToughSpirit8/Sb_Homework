@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            int programmingPoints = 12;
+            byte programmingPoints = 12;
             double mathPoints = 5.5;
             double sumOfPoints = mathPoints + programmingPoints;
             double midArithmetic = sumOfPoints / 2;
