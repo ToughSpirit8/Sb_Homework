@@ -5,7 +5,6 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            WriteLine("Hello, World!");
             Write("Hell");
             Write("o, ");
             Write("World");
