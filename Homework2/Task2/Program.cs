@@ -8,13 +8,12 @@
             double mathPoints = 5.5;
             double sumOfPoints = mathPoints + programmingPoints;
             double midArithmetic = sumOfPoints / 2;
-            Console.WriteLine($"{"Points for Programming:",23} {programmingPoints}");
-            Console.WriteLine($"{"Points for Math:",23} {mathPoints}");
-            Console.WriteLine("\nPress enter to get arithmetic mean...");
+            Console.WriteLine($"{"Points for programming:",23}{programmingPoints}\n{"Points for math:",23}{mathPoints}\nPress enter to get arithmetic mean...");
+            Console.WriteLine($"{"Sum of Points is:"}{sumOfPoints}\nArithmetic mean of Points is: {midArithmetic}\nPress enter for pattern formating...");
             Console.ReadLine();
-            Console.WriteLine($"{"arithmetic mean is:",23} {midArithmetic}");
-            Console.WriteLine("\nPress enter to quit...");
+            string Pattern = "Points for programming:{0}\nPoints for math:{1}\nSum of Points is:{2}\nArithmetic mean of Points is: {3}\nPress enter to quit...";
+            Console.WriteLine(Pattern, programmingPoints, mathPoints, sumOfPoints, midArithmetic);
             Console.ReadLine();
-        }   
+        }
     }
 }
