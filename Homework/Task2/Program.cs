@@ -14,7 +14,6 @@ namespace Task2
         int amountOfCards = int.Parse(amountOfCardsStr); //как избежать null без try catch тоже не понятно
             int score = 0;
             WriteLine("Какие карты у вас в руке? \n1-10 \nВалет = J\nДама = Q\nКороль = K\nТуз = T");
-
             for (int i = amountOfCards; i > 0; i--)
             {
                 
@@ -28,11 +27,10 @@ namespace Task2
                 {
                     switch (card)
                     {
-                        case "0": score += 0; continue; //изначально хотел парсить строку но опять же
-                                                        //без try catch не понятно как избежать вылета
-                        case "1": score += 1; continue;
-                        case "2": score += 2; continue;
-                        case "3": score += 3; continue;
+                        case "0": score += 0; continue; //изначально хотел парсить строку но опять же 
+                        case "1": score += 1; continue; //без try catch не понятно как избежать вылета
+                        case "2": score += 2; continue; //когда пытаюсь сам навоять try catch возникают проблемы с локальной видимостью переменных
+                        case "3": score += 3; continue; 
                         case "4": score += 4; continue;
                         case "5": score += 5; continue;
                         case "6": score += 6; continue;
