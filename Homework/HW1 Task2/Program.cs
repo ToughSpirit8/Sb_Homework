@@ -1,5 +1,5 @@
 ﻿using static System.Console;
-namespace ConsoleApp2
+namespace HomeWork1_Task2
 {
     internal class Program
     {

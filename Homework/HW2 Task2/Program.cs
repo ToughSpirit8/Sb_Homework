@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1
+﻿namespace HomeWork2_Task2
 {
     internal class Program
     {
