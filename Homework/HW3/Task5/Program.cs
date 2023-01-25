@@ -19,7 +19,6 @@ namespace Task5
                     if (guessValue == "") { WriteLine($"Жаль, загаданное число было {solution}. Покаки!"); Environment.Exit(1); }
                     else if (int.Parse(guessValue) > solution) { WriteLine($"Загаданное число меньше {guessValue}"); }
                     else if (int.Parse(guessValue) < solution) { WriteLine($"Загаданное число больше {guessValue}"); }
-                    
                 }
                 WriteLine($"Вы угадали! Загаданное число было {guessValue}");
                 Main();

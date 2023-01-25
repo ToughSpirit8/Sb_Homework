@@ -50,8 +50,7 @@ namespace Task2
             WriteLine($"Your score is {score}");
             int oponentScore = new Random().Next(6, 21);
             WriteLine($"Score of your opponent is {oponentScore}");
-            if (oponentScore > score)
-                WriteLine($"LOOSER");
+            if (oponentScore > score) WriteLine($"LOOSER");
             else { WriteLine("YOU WON!"); }
             ReadLine();
         }

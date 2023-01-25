@@ -13,9 +13,8 @@ namespace Task4
                 for (int i = numLength; i > 0; i--)
                 {
                     int currentNumber = int.Parse(ReadLine());
-                    if (currentNumber < minValue) { minValue= currentNumber;}  
+                    if (currentNumber < minValue) { minValue = currentNumber;}  
                 }
-            
                 WriteLine($"Минимальное значение в заданной последовательности {minValue}");
             }
         }
