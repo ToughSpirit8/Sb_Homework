@@ -2,6 +2,7 @@
 using System;
 using static System.Console;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 
 namespace Task2
 {
@@ -9,50 +10,47 @@ namespace Task2
     {
         static void Main()
         {
-        WriteLine("Введите количество ваших карт");
-        string amountOfCardsStr = ReadLine(); //Здесь нужен try catch но я пока не знаю как его реализовывать
-        int amountOfCards = int.Parse(amountOfCardsStr); //как избежать null без try catch тоже не понятно
-            int score = 0;
-            WriteLine("Какие карты у вас в руке? \n1-10 \nВалет = J\nДама = Q\nКороль = K\nТуз = T");
-            for (int i = amountOfCards; i > 0; i--)
+            bool keepplaying = true;
+            while (keepplaying == true)
             {
+                Write("Введите количество ваших карт: ");
+                string amountOfCardsStr = ReadLine(); 
+                if (int.TryParse(amountOfCardsStr, out int amountOfCards) == true) WriteLine("Ставки сделаны, ставок больше нет");
+                else { WriteLine("неверное значение карт начните сначала");break; }
                 
-                string card = ReadLine();
-                string cardL = card.ToLower();
-                if (cardL == "j" | cardL == "q" | cardL == "k" | cardL == "t")
+                int score = 0;
+                WriteLine("\nКакие карты у вас в руке? \nВыберите из:\n1-10 \nВалет = J\nДама = Q\nКороль = K\nТуз = T");
+                int j = 0; //счётчик номера вводимой карты
+                for (int i = amountOfCards; i > 0; i--)
                 {
-                    score += 10;
-                }
-                else if (card == "1" | card == "2" | card == "3" | card == "4" | card == "5" | card == "6" | card == "7" | card == "8" | card == "9" | card == "10")
-                {
-                    switch (card)
-                    {
-                        case "0": score += 0; continue; //изначально хотел парсить строку но опять же 
-                        case "1": score += 1; continue; //без try catch не понятно как избежать вылета
-                        case "2": score += 2; continue; //когда пытаюсь сам навоять try catch возникают проблемы с локальной видимостью переменных
-                        case "3": score += 3; continue; 
-                        case "4": score += 4; continue;
-                        case "5": score += 5; continue;
-                        case "6": score += 6; continue;
-                        case "7": score += 7; continue;
-                        case "8": score += 8; continue;
-                        case "9": score += 9; continue;
-                        case "10": score += 10; continue;
-                    }
-                }
-                else
-                {
-                    WriteLine("There is not such card GET OUT of here!");
+                    j++;
+                    Write($"\nКарта #{j} ");
+                    string card = ReadLine();
+                    string cardL = card.ToLower();
                     
-                    Main(); // Start again 
+                    
+                    if (cardL == "j" | cardL == "q" | cardL == "k" | cardL == "t") { score += 10; }
+                    else if (int.TryParse(card, out int cardParsed)) { score += cardParsed; }
+                    else { WriteLine("Такой карты нет, введите одно из предложенных значений!"); i++; }
+                
                 }
+                j = 0; //обнуляем счётчик номера вводимой карты
+                WriteLine($"Your score is {score}");
+                int oponentScore = new Random().Next(6, 21);
+                WriteLine($"Score of your opponent is {oponentScore}");
+                
+                if (oponentScore > score) WriteLine($"LOOSER");
+                else if (oponentScore == score) WriteLine("Draw");
+                else if (score > 21) WriteLine($"LOOSER");
+                else { WriteLine("YOU WON!"); }
+                
+                WriteLine($"Чтобы продолжить играть введите любой символ чтобы выйти нажмите enter");
+                
+                string answer = ReadLine();
+                if (answer == null | answer == "") { keepplaying = false; }
+                else { continue; }
+            
             }
-            WriteLine($"Your score is {score}");
-            int oponentScore = new Random().Next(6, 21);
-            WriteLine($"Score of your opponent is {oponentScore}");
-            if (oponentScore > score) WriteLine($"LOOSER");
-            else { WriteLine("YOU WON!"); }
-            ReadLine();
         }
     }
 }
