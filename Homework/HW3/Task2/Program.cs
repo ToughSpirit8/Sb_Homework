@@ -14,9 +14,9 @@ namespace Task2
             while (keepplaying == true)
             {
                 Write("Введите количество ваших карт: ");
-                string amountOfCardsStr = ReadLine(); 
-                if (int.TryParse(amountOfCardsStr, out int amountOfCards) == true) WriteLine("Ставки сделаны, ставок больше нет");
-                else { WriteLine("неверное значение карт начните сначала");break; }
+                string amountOfCardsStr = ReadLine();
+                if (int.TryParse(amountOfCardsStr, out int amountOfCards) == true){ Clear(); WriteLine($"Ставки сделаны, ставок больше нет. У вас {amountOfCards} карт, Удачи!") ; }
+                else { WriteLine("неверное значение карт попробуйте еще раз");continue; }
                 
                 int score = 0;
                 WriteLine("\nКакие карты у вас в руке? \nВыберите из:\n1-10 \nВалет = J\nДама = Q\nКороль = K\nТуз = T");
@@ -36,7 +36,7 @@ namespace Task2
                 }
                 j = 0; //обнуляем счётчик номера вводимой карты
                 WriteLine($"Your score is {score}");
-                int oponentScore = new Random().Next(6, 21);
+                int oponentScore = new Random().Next(6, 22);
                 WriteLine($"Score of your opponent is {oponentScore}");
                 
                 if (oponentScore > score) WriteLine($"LOOSER");
