@@ -42,6 +42,7 @@ namespace Task2
                 if (oponentScore > score) WriteLine($"LOOSER");
                 else if (oponentScore == score) WriteLine("Draw");
                 else if (score > 21) WriteLine($"LOOSER");
+                else if (oponentScore > 21) WriteLine($"EASY PEASY, You won!");
                 else { WriteLine("YOU WON!"); }
                 
                 WriteLine($"Чтобы продолжить играть введите любой символ чтобы выйти нажмите enter");
