@@ -75,7 +75,7 @@ class Simulation
             string playerAction = Console.ReadLine();
             if (playerAction == "f")
             {
-                int j = microbe.Rand(-8, 16);
+                int j = microbe.Rand(-8, 18);
                 if (j > 0) { Console.WriteLine("You have eaten a juicy microbe"); }
                 else { Console.WriteLine("You have lost energy but did not find anything"); }
                 microbe.Eat(j);
