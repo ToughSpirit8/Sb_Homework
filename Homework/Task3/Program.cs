@@ -15,7 +15,7 @@ class Microorganism
 
     public void Live()
     {
-        health -= age / 10 + 1;
+        health -= 1;
         age++;
         nutrition--;
     }
@@ -32,12 +32,12 @@ class Microorganism
         Random random = new Random();
         return random.Next(x, y);
     }
-    public int Rand(int x, int y)
+    public static int Rand(int x, int y)
     {
         Random random = new Random();
         return random.Next(x, y);
     }
-    public void reborn()
+    public void Reborn()
     {
         health += R(-5, 50);
         age = 0;
@@ -66,7 +66,7 @@ class Simulation
 
     static void Main()
     {
-        Microorganism microbe = new Microorganism(100, 0, 50);
+        Microorganism microbe = new(100, 0, 50);
         Console.WriteLine("Enter \n'f' to eat anything that is around the microbe,\n'm' to multiply and become new evolved organism(there may be negative mutations),\n'enter' to wait a turn: ");
         while (microbe.IsAlive())
         {
@@ -75,9 +75,9 @@ class Simulation
             string playerAction = Console.ReadLine();
             if (playerAction == "f")
             {
-                int j = microbe.Rand(-8, 18);
+                int j = Microorganism.Rand(-8, 18);
                 if (j > 0) { Console.WriteLine("You have eaten a juicy microbe"); }
-                else { Console.WriteLine("You have lost energy but did not find anything"); }
+                else { Console.WriteLine("You have lost energy but did not find anything to eat"); }
                 microbe.Eat(j);
 
                 microbe.Live();
@@ -85,7 +85,7 @@ class Simulation
             else if (playerAction == "m")
             {
                 microbe.hunger(50);
-                microbe.reborn();
+                microbe.Reborn();
                 microbe.Live();
                 Console.WriteLine("You are young and fresh again");
             }
@@ -93,14 +93,14 @@ class Simulation
 
                 microbe.Live();
         }
-        Console.WriteLine("Microbe has died.");
+        Console.WriteLine("Your microoganism has died.");
         string action = "";
         while (action == "")
         {
             action = Console.ReadLine();
 
 
-            if (action == "") { Console.WriteLine("Microbe has died.\n to quit enter 'q'to play again enter 'p'");continue; }
+            if (action == "") { Console.WriteLine("Your microoganism has died.\n to quit enter 'q'to play again enter 'p'");continue; }
             else if (action == "q")
             {
                 Environment.Exit(0);
