@@ -43,7 +43,7 @@ namespace HomeWork5_Task2
             else
             {
                 Write("Предложение наооборот*:"); for (int i = t.Length - 1; i >= 0; i--) { Write($"{t[i]} "); }
-                WriteLine("enter для выхода");
+                WriteLine("\nEnter для выхода");
                 ReadLine();
             }
         }
