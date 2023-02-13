@@ -7,17 +7,15 @@ namespace HomeWork5_Task2
     {
         private static string[] SplitText(string input)
         {
-
             string[] StringMassive = input.Split(" ");
             return StringMassive;
-
         }
         private static string ReverseString(string input)
         {
             string[] strArr = SplitText(input);
             //WriteLine(strArr.Length);
-            var ReversedString = new string[strArr.Length]; 
-            for (int i = strArr.Length - 1; i >= 0; i--)        
+            var ReversedString = new string[strArr.Length];
+            for (int i = strArr.Length - 1; i >= 0; i--)
             {
                 int c = strArr.Length - (i + 1);
                 //WriteLine(c);
@@ -27,17 +25,12 @@ namespace HomeWork5_Task2
         }
         static void Main()
         {
-
             Write("Введите предложение:");
             string input1 = ReadLine();
 
-            if (input1 == null | input1 == "") { Main(); }
-            else
-            {
-                string reversed = ReverseString(input1);
-                WriteLine($"Предложение наооборот*:{reversed}");
-            }
-            
+            if (input1 == null | input1 == "") { Main(); } // это нормальная рекурсия или в таких случая предпочтительнее цикл?
+            else { string reversed = ReverseString(input1); WriteLine($"Предложение наооборот*:{reversed}"); }
+            //Опционально добавил альтернативный метод
             WriteLine("Альтернативный метод");
             AlternativeMain();
         }
@@ -46,19 +39,13 @@ namespace HomeWork5_Task2
             Write("Введите предложение*:");
             string? input1 = ReadLine();
             string[] t = SplitText(input1);
-            if (input1 == null | input1 == "") { AlternativeMain(); }
+            if (input1 == null | input1 == "") { AlternativeMain(); } 
             else
             {
-                Write("Предложение наооборот*:");
-                for (int i = t.Length - 1; i >= 0; i--)
-                {
-                    Write($"{t[i]} ");
-                }
+                Write("Предложение наооборот*:"); for (int i = t.Length - 1; i >= 0; i--) { Write($"{t[i]} "); }
+                WriteLine("enter для выхода");
+                ReadLine();
             }
-            WriteLine();
-            WriteLine("enter для выхода");
-            ReadLine();
         }
     }
-
 }
