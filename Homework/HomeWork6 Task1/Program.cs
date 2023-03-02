@@ -143,7 +143,7 @@ class EmployeeDirectory
         }
 
         string employeeRecord = string.Format("{0}#{1}#{2}#{3}#{4}#{5}#{6}",
-            id, timestamp.ToString("dd.MM.yyyy HH:mm"), name, age, height, birthDate.ToString("dd.MM.yyyy"), birthPlace);
+            id, timestamp.ToString("dd.MM.yyyy"), name, age, height, birthDate.ToString("dd.MM.yyyy"), birthPlace);
 
         using (StreamWriter writer = File.AppendText(filePath))
         {
